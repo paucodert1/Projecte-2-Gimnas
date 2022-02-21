@@ -6,9 +6,14 @@ use gimnas;
 CREATE TABLE `Clients` (
 	`DNI` varchar(9) NOT NULL,
 	`nom` varchar(255) NOT NULL,
-	`cognom` varchar(255) NOT NULL,
-	`telefon` int(9) NOT NULL,
-	`condicio_fisica` varchar(255),
+	`cognom1` varchar(255) NOT NULL,
+    `cognom2` varchar(255) NOT NULL,
+    `datanaixement` date,
+    `edat` int(255),
+    `email` varchar(255),
+    `domicili` varchar(255),
+	`telefon` varchar(9) NOT NULL,
+	`condiciofisica` varchar(255),
 	PRIMARY KEY (`DNI`)
 );
 
@@ -100,12 +105,12 @@ ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk0` FOREIGN KEY (`id_cursa`) 
 ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
 
 
-INSERT INTO Clients (DNI, nom, cognom, telefon, condicio_fisica) VALUES ('47137446G', 'Bruno', 'Tomé', '628093249', null);
-INSERT INTO Clients (DNI, nom, cognom, telefon, condicio_fisica) VALUES ('77383544K', 'Janire', 'Quiles', '662672907', null);
-INSERT INTO Clients (DNI, nom, cognom, telefon, condicio_fisica) VALUES ('54126466Z', 'Ignasi', 'Cabrera', '646721702', null);
-INSERT INTO Clients (DNI, nom, cognom, telefon, condicio_fisica) VALUES ('51833470A', 'Myriam', 'Mari', '600269857', null);
-INSERT INTO Clients (DNI, nom, cognom, telefon, condicio_fisica) VALUES ('67289921V', 'Ayoub', 'Rosales', '625166765', null);
-INSERT INTO Clients (DNI, nom, cognom, telefon, condicio_fisica) VALUES ('00046319C', 'Sergio', 'Caceres', '620323809', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '628093249', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '662672907', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '646721702', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '600269857', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '625166765', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '620323809', null);
 
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('BrunoTA', '1234', '47137446G');
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('JanireQ', '1234', '77383544K');
@@ -113,6 +118,11 @@ INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('IgnasiC', '1234', '54126
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('MyriamM', '1234', '51833470A');
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('AyoubR', '1234', '67289921V');
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('SergioC', '1234', '00046319C');
+
+    
+INSERT INTO Activitat (descripcio, durada, tipus, nom) VALUES ('bicicleta','30 min','lliure','bici');
+INSERT INTO Activitat (descripcio, durada, tipus, nom) VALUES ('nadar','30 min','lliure','natacio');
+INSERT INTO Activitat (descripcio, durada, tipus, nom) VALUES ('aixecament de peses','30 min','lliure','peses');
 
 
 
