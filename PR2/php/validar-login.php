@@ -1,9 +1,0 @@
-<?php
-
-    include('ConnectarDB.php');
-
-    
-
-
-
-?>
