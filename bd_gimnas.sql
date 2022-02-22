@@ -19,11 +19,19 @@ CREATE TABLE `Clients` (
 
 CREATE TABLE `Activitat` (
 	`id_act` int NOT NULL AUTO_INCREMENT,
-	`descripcio` varchar(255) NOT NULL,
 	`durada` varchar(255) NOT NULL,
-	`tipus` varchar(255) NOT NULL,
     `nom` varchar(255) NOT NULL,
 	PRIMARY KEY (`id_act`)
+);
+
+CREATE TABLE `Activitat_lliure` (
+    `id_act` INT NOT NULL UNIQUE,
+    `descripcio` varchar(255) NOT NULL
+);
+
+CREATE TABLE `Activitat_colectiva` (
+    `id_act` INT NOT NULL UNIQUE,
+    `descripcio` varchar(255) NOT NULL
 );
 
 CREATE TABLE `Monitor` (
@@ -90,6 +98,10 @@ ALTER TABLE `Sala` ADD CONSTRAINT `Sala_fk0` FOREIGN KEY (`nom_monitor`) REFEREN
 
 ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk0` FOREIGN KEY (`idact`) REFERENCES `Activitat`(`id_act`);
 
+ALTER TABLE `Activitat_lliure` ADD CONSTRAINT `Activitat_lliure_fk0` FOREIGN KEY (`id_act`) REFERENCES `Activitat`(`id_act`);
+
+ALTER TABLE `Activitat_colectiva` ADD CONSTRAINT `Activitat_colectiva_fk0` FOREIGN KEY (`id_act`) REFERENCES `Activitat`(`id_act`);
+
 ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk1` FOREIGN KEY (`id_sala`) REFERENCES `Sala`(`id_sala`);
 
 ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk2` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
@@ -103,7 +115,6 @@ ALTER TABLE `Usuari_web` ADD CONSTRAINT `Usuari_web_fk0` FOREIGN KEY (`DNI`) REF
 ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk0` FOREIGN KEY (`id_cursa`) REFERENCES `Curses`(`id_cursa`);
 
 ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
-
 
 INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '628093249', null);
 INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '662672907', null);
@@ -120,11 +131,9 @@ INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('AyoubR', '1234', '672899
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('SergioC', '1234', '00046319C');
 
     
-INSERT INTO Activitat (descripcio, durada, tipus, nom) VALUES ('bicicleta','30 min','lliure','bici');
-INSERT INTO Activitat (descripcio, durada, tipus, nom) VALUES ('nadar','30 min','lliure','natacio');
-INSERT INTO Activitat (descripcio, durada, tipus, nom) VALUES ('aixecament de peses','30 min','lliure','peses');
-
-
+INSERT INTO Activitat (durada, nom) VALUES ('30 min','bici');
+INSERT INTO Activitat (durada, nom) VALUES ('30 min','natacio');
+INSERT INTO Activitat (durada, nom) VALUES ('30 min','peses');
 
 
 
