@@ -1,0 +1,38 @@
+CLIENTS(DNI, nom, cognom, telèfon, condicio_fisica)
+
+ACTIVITAT(id_act, descripció, durada, tipus, nom)
+
+MONITOR(DNI, NSS, telèfon, nom, cognom, email)
+
+SALA(ID, descripció, aforament, nom_monitor)
+
+On nom_monitor (FK) references MONITOR(nom)
+
+REALITZACIO(hora, data, id_act, id_sala, DNI)
+
+On id_act (FK) references ACTIVITAT (id_act)
+
+On id_sala (FK) references SALA (id_sala)
+
+On DNI (FK) references CLIENT (DNI)
+
+REGISTRE(DNI, nom, cognom, compte_bancari)
+
+On DNI (FK) references CLIENTS (DNI)
+
+ALTES (data_alta, data_baixa, DNI)
+
+On DNI (FK) references CLIENTS(DNI)
+
+USUARI_WEB (username, passwd, DNI)
+
+On DNI (FK) references CLIENTS (DNI)
+
+CURSES (id_cursa, descripcio, data)
+
+PARTICIPA (data, hora, id_cursa, DNI)
+
+On id_cursa (FK) references CURSA (id_cursa)
+
+On DNI (FK) references CLIENT (DNI)
+
