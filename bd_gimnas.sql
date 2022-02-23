@@ -27,12 +27,14 @@ CREATE TABLE `Activitat` (
 
 CREATE TABLE `Activitat_lliure` (
     `id_act` INT NOT NULL UNIQUE,
-    `descripcio` varchar(255) NOT NULL
+    `descripcio` varchar(255) NOT NULL,
+    PRIMARY KEY (`id_act`)
 );
 
 CREATE TABLE `Activitat_colectiva` (
     `id_act` INT NOT NULL UNIQUE,
-    `descripcio` varchar(255) NOT NULL
+    `descripcio` varchar(255) NOT NULL,
+    PRIMARY KEY (`id_act`)
 );
 
 CREATE TABLE `Monitor` (
@@ -58,20 +60,24 @@ CREATE TABLE `Realitzacio` (
 	`hora` time(6) NOT NULL,
 	`idact` int NOT NULL UNIQUE,
 	`id_sala` int NOT NULL UNIQUE,
-	`DNI` varchar(9) NOT NULL UNIQUE
+	`DNI` varchar(9) NOT NULL UNIQUE,
+    PRIMARY KEY (`id_sala`),
+    PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Registre` (
 	`nom` varchar(30) NOT NULL,
 	`cognom` varchar(30) NOT NULL,
 	`compte_bancari` varchar(23) NOT NULL,
-	`dni` varchar(9) NOT NULL
+	`DNI` varchar(9) NOT NULL,
+    PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Altes` (
 	`data_alta` DATE NOT NULL,
 	`data_baixa` DATE NOT NULL,
-	`dni` varchar(9) NOT NULL
+	`DNI` varchar(9) NOT NULL,
+    PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Usuari_web` (
@@ -92,7 +98,8 @@ CREATE TABLE `Participa` (
 	`data` DATE NOT NULL,
 	`hora` time(6) NOT NULL,
 	`id_cursa` int NOT NULL,
-	`DNI` varchar(9) NOT NULL
+	`DNI` varchar(9) NOT NULL,
+    PRIMARY KEY (`DNI`)
 );
 
 
@@ -139,8 +146,6 @@ INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13
 
 SELECT *
 FROM Activitat;
-
-
 
 
 
