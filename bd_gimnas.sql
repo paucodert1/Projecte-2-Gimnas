@@ -5,13 +5,12 @@ use gimnas;
 
 CREATE TABLE `Clients` (
 	`DNI` varchar(9) NOT NULL,
-	`nom` varchar(255) NOT NULL,
-	`cognom1` varchar(255) NOT NULL,
-    `cognom2` varchar(255) NOT NULL,
-    `datanaixement` date,
-    `edat` int(255),
-    `email` varchar(255),
-    `domicili` varchar(255),
+	`nom` varchar(30) NOT NULL,
+	`cognom1` varchar(30) NOT NULL,
+    `cognom2` varchar(30) NOT NULL,
+    `datanaixement` date NOT NULL,
+    `email` varchar(60) NOT NULL,
+    `domicili` varchar(60),
 	`telefon` varchar(9) NOT NULL,
 	`condiciofisica` varchar(255),
 	PRIMARY KEY (`DNI`)
@@ -19,8 +18,10 @@ CREATE TABLE `Clients` (
 
 CREATE TABLE `Activitat` (
 	`id_act` int NOT NULL AUTO_INCREMENT,
-	`durada` varchar(255) NOT NULL,
-    `nom` varchar(255) NOT NULL,
+	`hora_inici` time(6) NOT NULL,
+    `hora_final` time(6) NOT NULL,
+    `nom` varchar(30) NOT NULL,
+    `dia` int(1) NOT NULL,
 	PRIMARY KEY (`id_act`)
 );
 
@@ -38,31 +39,31 @@ CREATE TABLE `Monitor` (
 	`DNI` varchar(9) NOT NULL,
 	`NSS` varchar(14) NOT NULL UNIQUE,
 	`telefon` varchar(9) NOT NULL UNIQUE,
-	`nom` varchar(255) NOT NULL,
-	`cognom` varchar(255) NOT NULL,
-	`email` varchar(255) NOT NULL UNIQUE,
+	`nom` varchar(30) NOT NULL,
+	`cognom` varchar(30) NOT NULL,
+	`email` varchar(60) NOT NULL UNIQUE,
 	PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Sala` (
 	`id_sala` int NOT NULL AUTO_INCREMENT,
 	`descripcio` varchar(255) NOT NULL,
-	`aforament` int(255) NOT NULL,
-	`nom_monitor` varchar(255) NOT NULL,
+	`aforament` int(2) NOT NULL,
+	`nom_monitor` varchar(30) NOT NULL,
 	PRIMARY KEY (`id_sala`)
 );
 
 CREATE TABLE `Realitzacio` (
 	`data` DATE NOT NULL,
-	`hora` varchar(255) NOT NULL,
+	`hora` time(6) NOT NULL,
 	`idact` int NOT NULL UNIQUE,
 	`id_sala` int NOT NULL UNIQUE,
 	`DNI` varchar(9) NOT NULL UNIQUE
 );
 
 CREATE TABLE `Registre` (
-	`nom` varchar(255) NOT NULL,
-	`cognom` varchar(255) NOT NULL,
+	`nom` varchar(30) NOT NULL,
+	`cognom` varchar(30) NOT NULL,
 	`compte_bancari` varchar(23) NOT NULL,
 	`dni` varchar(9) NOT NULL
 );
@@ -74,21 +75,22 @@ CREATE TABLE `Altes` (
 );
 
 CREATE TABLE `Usuari_web` (
-	`username` varchar(255) NOT NULL,
-	`passwd` varchar(40) NOT NULL,
-	`DNI` varchar(9) NOT NULL
+	`username` varchar(16) NOT NULL,
+	`passwd` varchar(34) NOT NULL,
+	`DNI` varchar(9) NOT NULL,
+    PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Curses` (
 	`id_cursa` int NOT NULL AUTO_INCREMENT,
 	`descripcio` varchar(255) NOT NULL,
-	`durada` varchar(255) NOT NULL,
+	`durada` varchar(20) NOT NULL,
 	PRIMARY KEY (`id_cursa`)
 );
 
 CREATE TABLE `Participa` (
 	`data` DATE NOT NULL,
-	`hora` varchar(255) NOT NULL,
+	`hora` time(6) NOT NULL,
 	`id_cursa` int NOT NULL,
 	`DNI` varchar(9) NOT NULL
 );
@@ -116,12 +118,12 @@ ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk0` FOREIGN KEY (`id_cursa`) 
 
 ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
 
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '628093249', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '662672907', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '646721702', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '600269857', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '625166765', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, telefon, condiciofisica) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '620323809', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null);
 
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('BrunoTA', '1234', '47137446G');
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('JanireQ', '1234', '77383544K');
@@ -131,11 +133,12 @@ INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('AyoubR', '1234', '672899
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('SergioC', '1234', '00046319C');
 
     
-INSERT INTO Activitat (durada, nom) VALUES ('30 min','bici');
-INSERT INTO Activitat (durada, nom) VALUES ('30 min','natacio');
-INSERT INTO Activitat (durada, nom) VALUES ('30 min','peses');
+INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13:30:00', 'bici', 1);
+INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13:30:00', 'natacio', 1);
+INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13:30:00', 'peses', 2);
 
-
+SELECT *
+FROM Activitat;
 
 
 
