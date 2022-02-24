@@ -13,6 +13,7 @@ CREATE TABLE `Clients` (
     `domicili` varchar(60),
 	`telefon` varchar(9) NOT NULL,
 	`condiciofisica` varchar(255),
+    `ccc` varchar(23) NOT NULL,
 	PRIMARY KEY (`DNI`)
 );
 
@@ -61,15 +62,6 @@ CREATE TABLE `Realitzacio` (
 	`idact` int NOT NULL UNIQUE,
 	`id_sala` int NOT NULL UNIQUE,
 	`DNI` varchar(9) NOT NULL UNIQUE,
-    PRIMARY KEY (`id_sala`),
-    PRIMARY KEY (`DNI`)
-);
-
-CREATE TABLE `Registre` (
-	`nom` varchar(30) NOT NULL,
-	`cognom` varchar(30) NOT NULL,
-	`compte_bancari` varchar(23) NOT NULL,
-	`DNI` varchar(9) NOT NULL,
     PRIMARY KEY (`DNI`)
 );
 
@@ -115,8 +107,6 @@ ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk1` FOREIGN KEY (`id_sala
 
 ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk2` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
 
-ALTER TABLE `Registre` ADD CONSTRAINT `Registre_fk0` FOREIGN KEY (`dni`) REFERENCES `Clients`(`DNI`);
-
 ALTER TABLE `Altes` ADD CONSTRAINT `Altes_fk0` FOREIGN KEY (`dni`) REFERENCES `Clients`(`DNI`);
 
 ALTER TABLE `Usuari_web` ADD CONSTRAINT `Usuari_web_fk0` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
@@ -125,12 +115,12 @@ ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk0` FOREIGN KEY (`id_cursa`) 
 
 ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
 
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null);
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null);
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "ES00 0000 0000 0000 000");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "ES00 0000 0000 0000 000");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "ES00 0000 0000 0000 000");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "ES00 0000 0000 0000 000");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "ES00 0000 0000 0000 000");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "ES00 0000 0000 0000 000");
 
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('BrunoTA', '1234', '47137446G');
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('JanireQ', '1234', '77383544K');
@@ -146,6 +136,7 @@ INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13
 
 SELECT *
 FROM Activitat;
+
 
 
 
