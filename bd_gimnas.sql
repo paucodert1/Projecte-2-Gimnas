@@ -115,12 +115,12 @@ ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk0` FOREIGN KEY (`id_cursa`) 
 
 ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
 
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "ES00 0000 0000 0000 000");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "ES00 0000 0000 0000 000");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "ES00 0000 0000 0000 000");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "ES00 0000 0000 0000 000");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "ES00 0000 0000 0000 000");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "ES00 0000 0000 0000 000");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "1479-6162-11-1961757847");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "0029-5305-20-1322961672");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "3187-4208-31-6787423192");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "2080-5803-99-3919628063");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "0100-5450-37-6401236119");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "0062-1235-94-5864355115");
 
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('BrunoTA', '1234', '47137446G');
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('JanireQ', '1234', '77383544K');
@@ -136,7 +136,6 @@ INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13
 
 SELECT *
 FROM Activitat;
-
 
 
 
