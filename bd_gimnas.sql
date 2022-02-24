@@ -39,20 +39,20 @@ CREATE TABLE `Activitat_colectiva` (
 );
 
 CREATE TABLE `Monitor` (
-	`DNI` varchar(9) NOT NULL,
-	`NSS` varchar(14) NOT NULL UNIQUE,
+	`DNI_monitor` varchar(9) NOT NULL,
+	`NSS` varchar(12) NOT NULL UNIQUE,
 	`telefon` varchar(9) NOT NULL UNIQUE,
 	`nom` varchar(30) NOT NULL,
 	`cognom` varchar(30) NOT NULL,
 	`email` varchar(60) NOT NULL UNIQUE,
-	PRIMARY KEY (`DNI`)
+	PRIMARY KEY (`DNI_monitor`)
 );
 
 CREATE TABLE `Sala` (
 	`id_sala` int NOT NULL AUTO_INCREMENT,
 	`descripcio` varchar(255) NOT NULL,
 	`aforament` int(2) NOT NULL,
-	`nom_monitor` varchar(30) NOT NULL,
+	`DNI_monitor` varchar(30) NOT NULL,
 	PRIMARY KEY (`id_sala`)
 );
 
@@ -67,7 +67,7 @@ CREATE TABLE `Realitzacio` (
 
 CREATE TABLE `Altes` (
 	`data_alta` DATE NOT NULL,
-	`data_baixa` DATE NOT NULL,
+	`data_baixa` DATE,
 	`DNI` varchar(9) NOT NULL,
     PRIMARY KEY (`DNI`)
 );
@@ -82,6 +82,7 @@ CREATE TABLE `Usuari_web` (
 CREATE TABLE `Curses` (
 	`id_cursa` int NOT NULL AUTO_INCREMENT,
 	`descripcio` varchar(255) NOT NULL,
+    `distancia` int(255) NOT NULL,
 	`durada` varchar(20) NOT NULL,
 	PRIMARY KEY (`id_cursa`)
 );
@@ -95,7 +96,7 @@ CREATE TABLE `Participa` (
 );
 
 
-ALTER TABLE `Sala` ADD CONSTRAINT `Sala_fk0` FOREIGN KEY (`nom_monitor`) REFERENCES `Monitor`(`DNI`);
+ALTER TABLE `Sala` ADD CONSTRAINT `Sala_fk0` FOREIGN KEY (`DNI_monitor`) REFERENCES `Monitor`(`DNI_monitor`);
 
 ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk0` FOREIGN KEY (`idact`) REFERENCES `Activitat`(`id_act`);
 
@@ -115,27 +116,98 @@ ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk0` FOREIGN KEY (`id_cursa`) 
 
 ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFERENCES `Clients`(`DNI`);
 
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "1479-6162-11-1961757847");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "0029-5305-20-1322961672");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "3187-4208-31-6787423192");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "2080-5803-99-3919628063");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "0100-5450-37-6401236119");
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES ('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "0062-1235-94-5864355115");
 
-INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('BrunoTA', '1234', '47137446G');
-INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('JanireQ', '1234', '77383544K');
-INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('IgnasiC', '1234', '54126466Z');
-INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('MyriamM', '1234', '51833470A');
-INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('AyoubR', '1234', '67289921V');
-INSERT INTO Usuari_web (username, passwd, DNI) VALUES ('SergioC', '1234', '00046319C');
+# INSERTS
 
-    
-INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13:30:00', 'bici', 1);
-INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13:30:00', 'natacio', 1);
-INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES ('12:30:00', '13:30:00', 'peses', 2);
 
-SELECT *
-FROM Activitat;
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES 
+('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "1479-6162-11-1961757847"),
+('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "0029-5305-20-1322961672"),
+('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "3187-4208-31-6787423192"),
+('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "2080-5803-99-3919628063"),
+('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "0100-5450-37-6401236119"),
+('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "0062-1235-94-5864355115");
+
+
+INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES 
+('12:30:00', '13:30:00', 'piscina', 1),
+('14:00:00', '15:00:00', 'fitness', 1),
+('12:30:00', '13:30:00', 'padel', 2),
+('14:00:00', '15:00:00', 'bici', 2),
+('12:30:00', '13:30:00', 'cinta de correr', 3),
+('14:00:00', '15:00:00', 'cycling', 3),
+('12:30:00', '13:30:00', 'body pump', 4),
+('14:00:00', '15:00:00', 'pilates', 4),
+('12:30:00', '13:30:00', 'natació', 5),
+('14:00:00', '15:00:00', 'aquagym', 5),
+('12:30:00', '13:30:00', 'running', 6),
+('14:00:00', '15:00:00', 'zumba', 6),
+('12:30:00', '13:30:00', 'boxa', 7),
+('14:00:00', '15:00:00', 'ioga', 7);
+
+
+INSERT INTO Activitat_lliure(id_act, descripcio) VALUES
+(1, 'Piscina'),
+(2, 'Fitness'),
+(3, 'Partits de padel'),
+(4, 'Bici'),
+(5, 'Cinta de correr'),
+(13, 'Boxa');
+
+
+INSERT INTO Activitat_colectiva(id_act, descripcio) VALUES
+(6, 'Cycling'),
+(7, 'Body pump'),
+(8, 'Pilates'),
+(9, 'Natació en piscina descoberta'),
+(10, 'Aquagym'),
+(11, 'Running'),
+(12, 'Zumba'),
+(14, 'Ioga');
+
+
+INSERT INTO Monitor(DNI_monitor, NSS, telefon, nom, cognom, email) VALUES
+('08578598N', '408472140491', '623792716', 'Rafael', 'Luz', 'rafaell@gmail.com'),
+('70134652Q', '302866612208', '667881156', 'José', 'Antonio', 'josea@gmail.com'),
+('90758723X', '315152690913', '777672774', 'Andrea', 'Requena', 'andrear@gmail.com'),
+('17504793E', '350060969692', '692445785', 'Laura', 'Macias', 'lauram@gmail.com');
+
+
+INSERT INTO Sala(descripcio, aforament, DNI_monitor) VALUES
+('Sala de piscina', 40, '08578598N'),
+('Sala de maquines de exercicis', 40, '70134652Q'),
+('Sala de zumba', 40, '90758723X'),
+('Sala de maquines de exercicis Num 2', 40, '17504793E');
+
+
+INSERT INTO Altes(data_alta, data_baixa, DNI) VALUES
+('2022-02-24', null, '47137446G'),
+('2022-01-24', '2022-02-24', '77383544K'),
+('2022-01-20', null, '54126466Z'),
+('2022-01-10', '2022-02-20', '51833470A'),
+('2022-02-04', null, '67289921V'),
+('2022-01-15', null, '00046319C');
+
+
+INSERT INTO Usuari_web (username, passwd, DNI) VALUES 
+('BrunoTA', '1234', '47137446G'),
+('JanireQ', '1234', '77383544K'),
+('IgnasiC', '1234', '54126466Z'),
+('MyriamM', '1234', '51833470A'),
+('AyoubR', '1234', '67289921V'),
+('SergioC', '1234', '00046319C');
+
+
+INSERT INTO Curses (descripcio, distancia, durada) VALUES 
+('Cursa solidaria a peu al voltant de Tarrega', 12, '4 hores'),
+('Cursa amb bici per Cervera', 15, '4,5 hores'),
+('Cursa a peu a Lleida', 10, '5 hores');
+
+
+INSERT INTO Participa (data, hora, id_cursa, DNI) VALUES
+('2022-02-17', '12:00:00', 1, '47137446G'),
+('2022-02-17', '12:00:00', 1, '54126466Z'),
+('2022-02-17', '12:00:00', 1, '51833470A');
 
 
 
