@@ -13,6 +13,7 @@ CREATE TABLE `Clients` (
     `domicili` varchar(60),
 	`telefon` varchar(9) NOT NULL,
 	`condiciofisica` varchar(255),
+    `comunicaciocomercial` varchar(2),
     `ccc` varchar(23) NOT NULL,
 	PRIMARY KEY (`DNI`)
 );
@@ -120,13 +121,13 @@ ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFER
 # INSERTS
 
 
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES 
-('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "1479-6162-11-1961757847"),
-('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "0029-5305-20-1322961672"),
-('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "3187-4208-31-6787423192"),
-('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "2080-5803-99-3919628063"),
-('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "0100-5450-37-6401236119"),
-('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "0062-1235-94-5864355115");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, comunicaciocomercial, ccc) VALUES 
+('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "SI", "1479-6162-11-1961757847"),
+('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "NO", "0029-5305-20-1322961672"),
+('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "SI", "3187-4208-31-6787423192"),
+('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "NO", "2080-5803-99-3919628063"),
+('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "SI", "0100-5450-37-6401236119"),
+('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "NO", "0062-1235-94-5864355115");
 
 
 INSERT INTO Activitat (hora_inici, hora_final, nom, dia) VALUES 
@@ -199,41 +200,16 @@ INSERT INTO Usuari_web (username, passwd, DNI) VALUES
 
 
 INSERT INTO Curses (descripcio, distancia, durada) VALUES 
-('Cursa solidaria a peu al voltant de Tarrega', 12, '4 hores'),
+('Cursa solidaria corrent al voltant de Tarrega', 12, '4 hores'),
 ('Cursa amb bici per Cervera', 15, '4,5 hores'),
-('Cursa a peu a Lleida', 10, '5 hores');
+('Cursa de natacio a Lleida', 1, '2 hores'),
+('Cursa de triatló a Tarrega', 15, '5 hores');
 
 
 INSERT INTO Participa (data, hora, id_cursa, DNI) VALUES
 ('2022-02-17', '12:00:00', 1, '47137446G'),
 ('2022-02-17', '12:00:00', 1, '54126466Z'),
 ('2022-02-17', '12:00:00', 1, '51833470A');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
