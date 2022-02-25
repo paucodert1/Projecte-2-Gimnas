@@ -4,27 +4,27 @@ use gimnas;
 
 
 CREATE TABLE `Clients` (
-	`DNI` varchar(9) NOT NULL,
-	`nom` varchar(30) NOT NULL,
-	`cognom1` varchar(30) NOT NULL,
+    `DNI` varchar(9) NOT NULL,
+    `nom` varchar(30) NOT NULL,
+    `cognom1` varchar(30) NOT NULL,
     `cognom2` varchar(30) NOT NULL,
     `datanaixement` date NOT NULL,
     `email` varchar(60) NOT NULL,
     `domicili` varchar(60),
-	`telefon` varchar(9) NOT NULL,
-	`condiciofisica` varchar(255),
+    `telefon` varchar(9) NOT NULL,
+    `condiciofisica` varchar(255),
     `comunicaciocomercial` varchar(2),
     `ccc` varchar(23) NOT NULL,
-	PRIMARY KEY (`DNI`)
+    PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Activitat` (
-	`id_act` int NOT NULL AUTO_INCREMENT,
-	`hora_inici` time(6) NOT NULL,
+    `id_act` int NOT NULL AUTO_INCREMENT,
+    `hora_inici` time(6) NOT NULL,
     `hora_final` time(6) NOT NULL,
     `nom` varchar(30) NOT NULL,
     `dia` int(1) NOT NULL,
-	PRIMARY KEY (`id_act`)
+    PRIMARY KEY (`id_act`)
 );
 
 CREATE TABLE `Activitat_lliure` (
@@ -40,59 +40,59 @@ CREATE TABLE `Activitat_colectiva` (
 );
 
 CREATE TABLE `Monitor` (
-	`DNI_monitor` varchar(9) NOT NULL,
-	`NSS` varchar(12) NOT NULL UNIQUE,
-	`telefon` varchar(9) NOT NULL UNIQUE,
-	`nom` varchar(30) NOT NULL,
-	`cognom` varchar(30) NOT NULL,
-	`email` varchar(60) NOT NULL UNIQUE,
-	PRIMARY KEY (`DNI_monitor`)
+    `DNI_monitor` varchar(9) NOT NULL,
+    `NSS` varchar(12) NOT NULL UNIQUE,
+    `telefon` varchar(9) NOT NULL UNIQUE,
+    `nom` varchar(30) NOT NULL,
+    `cognom` varchar(30) NOT NULL,
+    `email` varchar(60) NOT NULL UNIQUE,
+    PRIMARY KEY (`DNI_monitor`)
 );
 
 CREATE TABLE `Sala` (
-	`id_sala` int NOT NULL AUTO_INCREMENT,
-	`descripcio` varchar(255) NOT NULL,
-	`aforament` int(2) NOT NULL,
-	`DNI_monitor` varchar(30) NOT NULL,
-	PRIMARY KEY (`id_sala`)
+    `id_sala` int NOT NULL AUTO_INCREMENT,
+    `descripcio` varchar(255) NOT NULL,
+    `aforament` int(2) NOT NULL,
+    `DNI_monitor` varchar(30) NOT NULL,
+    PRIMARY KEY (`id_sala`)
 );
 
 CREATE TABLE `Realitzacio` (
-	`data` DATE NOT NULL,
-	`hora` time(6) NOT NULL,
-	`idact` int NOT NULL UNIQUE,
-	`id_sala` int NOT NULL UNIQUE,
-	`DNI` varchar(9) NOT NULL UNIQUE,
+    `data` DATE NOT NULL,
+    `hora` time(6) NOT NULL,
+    `idact` int NOT NULL UNIQUE,
+    `id_sala` int NOT NULL UNIQUE,
+    `DNI` varchar(9) NOT NULL UNIQUE,
     PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Altes` (
-	`data_alta` DATE NOT NULL,
-	`data_baixa` DATE,
-	`DNI` varchar(9) NOT NULL,
+    `data_alta` DATE NOT NULL,
+    `data_baixa` DATE,
+    `DNI` varchar(9) NOT NULL,
     PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Usuari_web` (
-	`username` varchar(16) NOT NULL,
-	`passwd` varchar(34) NOT NULL,
-	`DNI` varchar(9) NOT NULL,
+    `username` varchar(16) NOT NULL,
+    `passwd` varchar(34) NOT NULL,
+    `DNI` varchar(9) NOT NULL,
     PRIMARY KEY (`DNI`)
 );
 
 CREATE TABLE `Curses` (
-	`id_cursa` int NOT NULL AUTO_INCREMENT,
-	`descripcio` varchar(255) NOT NULL,
+    `id_cursa` int NOT NULL AUTO_INCREMENT,
+    `descripcio` varchar(255) NOT NULL,
     `distancia` int(255) NOT NULL,
-	`durada` varchar(20) NOT NULL,
-	PRIMARY KEY (`id_cursa`)
+    `durada` varchar(20) NOT NULL,
+    PRIMARY KEY (`id_cursa`)
 );
 
 CREATE TABLE `Participa` (
-	`data` DATE NOT NULL,
-	`hora` time(6) NOT NULL,
-	`id_cursa` int NOT NULL,
-	`DNI` varchar(9) NOT NULL,
+    `data` DATE NOT NULL,
+    `hora` time(6) NOT NULL,
+    `id_cursa` int NOT NULL,
+    `DNI` varchar(9) NOT NULL,
     PRIMARY KEY (`DNI`)
 );
 
