@@ -18,9 +18,9 @@
         <div class="nav">
             <a href="#">Inici</a>
             <a href="#">Sobre</a>
-            <a href="#">Portafoli</a>
+            <a href="#">Activitats</a>
             <a href="#">Serveis</a>
-            <a href="#">Contactes</a>
+            <a href="#">Contacta</a>
             <a href="login.php">Login</a>
         </div>
         <section class="textes-header">
@@ -36,24 +36,20 @@
     </div>
     <div class="main">
         <section class="contenedor sobre-nosotros">
-            <h2 class="titol">Nuestro producto</h2>
+            <h2 class="titol">Sobre Nosaltres</h2>
             <div class="contenedor-sobre-nosotros">
                 <img src="../img/ilustracion2.svg" alt="" class="imagen-about-us">
                 <div class="contenido-textos">
-                    <h3><span>1</span>Los mejores productos</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veniam eius aspernatur ad
-                        consequuntur aperiam minima sed dicta odit numquam sapiente quam eum, architecto animi pariatur,
-                        velit doloribus laboriosam ut.</p>
-                    <h3><span>2</span>Los mejores productos</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt veniam eius aspernatur ad
-                        consequuntur aperiam minima sed dicta odit numquam sapiente quam eum, architecto animi pariatur,
-                        velit doloribus laboriosam ut.</p>
+                    <h3><span>1</span>Origen</h3>
+                    <p>Mango Gym neix a la província de Lleida concretament al municipi de Cervera l'any 2021, producte que a la província no hi havia un gimnàs que pogués suplir les necessitats de les persones que volen entrenar el seu cos sobre la base de l'exercici i el menjar saludable .</p>
+                    <h3><span>2</span>Com ho fem?</h3>
+                    <p>Perquè ens apassiona el que fem i ens agrada el Fitnes, creem el gimnàs i implementem una Cultura Fisica on podem transmetre als nostres clients la importància de mantenir-se actius i fer exercicis.</p>
                 </div>
             </div>
         </section>
         <section class="portafoli">
             <div class="contenidor">
-                <h2 class="titol">portafoli</h2>
+                <h2 class="titol">Activitats</h2>
                 <div class="galeria-port">
                     <div class="imatge-port">
                         <img src="../img/img1.jpg" alt="imatge">
@@ -120,15 +116,15 @@
                 <div class="card">
                     <img src="../img/face1.jpg" alt="imatge">
                     <div class="contingut-texte-card">
-                        <h4>name</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, labore!</p>
+                        <h4>Celena</h4>
+                        <p>Fa dos anys que entreno al MangoGym durant les meves vacances i estic encantat. Tenen tot el que necessiten per entrenar (sense floritures necessàries) i un munt de classes col·lectives.</p>
                     </div>
                 </div>
                 <div class="card">
                     <img src="../img/face2.jpg" alt="imatge">
                     <div class="contingut-texte-card">
-                        <h4>name</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, labore!</p>
+                        <h4>Maria</h4>
+                        <p>Instal·lacions de qualitat i alta professionalitat. És tot un luxe poder comptar amb la direcció i el consell de dos professionals com els que regenten aquest gym per un preu a l'abast de qualsevol butxaca.</p>
                     </div>
                 </div>
             </div>
@@ -138,19 +134,19 @@
                 <h2 class="titol">Els nostres serveis</h2>
                 <div class="servei-cont">
                     <div class="servei-ind">
-                        <img src="../img/ilustracion1.svg" alt="imatge">
-                        <h3>name</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, vero.</p>
+                        <img src="../img/ilustracion3.svg" alt="imatge">
+                        <h3>Competicions semanals</h3>
+                        <p>S' efectuen competicions amb un preu en efectiu per al guayandor de el event setmanal.</p>
                     </div>
                     <div class="servei-ind">
-                        <img src="../img/ilustracion3.svg" alt="imatge">
-                        <h3>name</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, vero.</p>
+                        <img src="../img/ilustracion2.svg" alt="imatge">
+                        <h3>Entrenador Personal</h3>
+                        <p>Hi ha fins a 10 entrenador a la disposicio de el clients de dilluns a divendres.</p>
                     </div>
                     <div class="servei-ind">
                         <img src="../img/ilustracion4.svg" alt="imatge">
-                        <h3>name</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, vero.</p>
+                        <h3>Ordinador Personal</h3>
+                        <p>Lliurem un dispositiu informatic i el client disposa de la opcio per seleccionar SOs.</p>
                     </div>
                 </div>
             </div>

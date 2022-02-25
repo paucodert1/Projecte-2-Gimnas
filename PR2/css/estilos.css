@@ -30,11 +30,11 @@ body{
     height: 600px;
     background: #ffb74c;
     /* fallback for old browsers */ 
-    background: linear-gradient(to right, hsla(356, 90%, 64%, 0.400), hsla(280, 78%, 69%, 0.336), #ffb74c), url(../img/portada.jpg);
+    background: linear-gradient(to right, hsla(356, 90%, 64%, 0.4), hsla(280, 78%, 69%, 0.336), #ffb74c), url(../img/portada.jpg);
      /* Chrome 10-25, Safari 5.1-6 */
      background: linear-gradient(to right, hsla(356, 90%, 64%, 0.400), hsla(280, 78%, 69%, 0.582), #ffb74c8f), url(../img/portada.jpg); 
      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-size: cover;
+    /* background-size: cover; */
     background-attachment: fixed;
     position: relative;
 }
@@ -114,7 +114,7 @@ body{
 }
 
 .contenido-textos h3 span{
-    background: #4d0686;
+    background: #F9A826;
     color: #fff;
     border-radius: 50%;
     display: inline-block;
@@ -281,7 +281,7 @@ body{
 
 .content-foo h4{
     color: #fff;
-    border-bottom: 3px solid #af20d3;
+    border-bottom: 3px solid #F9A826;
     padding-bottom: 2px;
     margin-bottom: 5px;
 }
