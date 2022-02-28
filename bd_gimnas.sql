@@ -8,6 +8,7 @@ CREATE TABLE `Clients` (
 	`nom` varchar(30) NOT NULL,
 	`cognom1` varchar(30) NOT NULL,
     `cognom2` varchar(30) NOT NULL,
+    `sexe` char(1) NOT NULL,
     `datanaixement` date NOT NULL,
     `email` varchar(60) NOT NULL,
     `domicili` varchar(60),
@@ -123,13 +124,13 @@ ALTER TABLE `Activitat` ADD CONSTRAINT `Activitat_fk0` FOREIGN KEY (`id_sala`) R
 # INSERTS
 
 
-INSERT INTO Clients (DNI, nom, cognom1, cognom2, datanaixement, email, telefon, condiciofisica, ccc) VALUES 
-('47137446G', 'Bruno', 'Tomé', 'Arias', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "ES2412491614145851007544"),
-('77383544K', 'Janire', 'Quiles', 'cognom', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "ES6815257321906273010242"),
-('54126466Z', 'Ignasi', 'Cabrera', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "ES5600368145265920955294"),
-('51833470A', 'Myriam', 'Mari', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "ES3631901491813119440760"),
-('67289921V', 'Ayoub', 'Rosales', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "ES0420405698814239157974"),
-('00046319C', 'Sergio', 'Caceres', 'cognom', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "ES6330726229373463442372");
+INSERT INTO Clients (DNI, nom, cognom1, cognom2, sexe, datanaixement, email, telefon, condiciofisica, ccc) VALUES 
+('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "ES2412491614145851007544"),
+('77383544K', 'Janire', 'Quiles', 'cognom', 'H', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "ES6815257321906273010242"),
+('54126466Z', 'Ignasi', 'Cabrera', 'cognom', 'M', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "ES5600368145265920955294"),
+('51833470A', 'Myriam', 'Mari', 'cognom', 'H', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "ES3631901491813119440760"),
+('67289921V', 'Ayoub', 'Rosales', 'cognom', 'M', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "ES0420405698814239157974"),
+('00046319C', 'Sergio', 'Caceres', 'cognom', 'M', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "ES6330726229373463442372");
 
 INSERT INTO Monitor(DNI_monitor, NSS, telefon, nom, cognom, email) VALUES
 ('08578598N', '408472140491', '623792716', 'Rafael', 'Luz', 'rafaell@gmail.com'),
@@ -208,5 +209,3 @@ INSERT INTO Participa (data, hora, id_cursa, DNI) VALUES
 ('2022-02-17', '12:00:00', 1, '47137446G'),
 ('2022-02-17', '12:00:00', 1, '54126466Z'),
 ('2022-02-17', '12:00:00', 1, '51833470A');
-
-
