@@ -114,6 +114,36 @@ body{
     width:100%;
 }
 
+/* taula de activitats */
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+#first th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ffb74c;
+    color: white;
+  }
+
+
+/* login */
+
+
+
 /* footer */
 
 .footer{
@@ -139,7 +169,7 @@ body{
 
 .content-foo h4{
     color: #fff;
-    border-bottom: 3px solid #af20d3;
+    border-bottom: 3px solid #ffb74c;
     padding-bottom: 2px;
     margin-bottom: 5px;
 }
@@ -154,3 +184,4 @@ body{
     margin: 20px 0 0 0;
     color: #9e9797;
 }
+

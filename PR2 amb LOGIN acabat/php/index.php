@@ -156,15 +156,15 @@
         <div class="contenidor-footer">
             <div class="content-foo">
                 <h4>Phone</h4>
-                <p>69694538282</p>
+                <p>666666666</p>
             </div>
             <div class="content-foo">
                 <h4>Email</h4>
-                <p>mangogym</p>
+                <p>mangogym@gmail.com</p>
             </div>
             <div class="content-foo">
                 <h4>Location</h4>
-                <p>69694538282</p>
+                <p>Carrer de la Vall d'Aran, 13</p>
             </div>
         </div>
         <h2 class="titol-final">&copy;Pau Rubio | Bruno Tome</h2>

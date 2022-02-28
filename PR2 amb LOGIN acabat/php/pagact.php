@@ -1,3 +1,4 @@
+<?php include 'consultes.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,26 +42,35 @@
         <section class="contenedor sobre-nosotros">
             <h2 class="titol">ACTIVITATS</h2>
 
-            <table>
+            <table id="customers">
 
                 <tr id="first">
-                    <td>NOM</td>
-                    <td>HORA INCI</td>
-                    <td>AFORAMENT</td>
-                    <td>MATERIAL</td>
-                    <td>ESTOC</td>
+                    <th>NOM</th>
+                    <th>HORA INCI</th>
+                    <th>AFORAMENT</th>
+                    <th>MONITOR</th>
+                    <th>SALA</th>
+                    <input type="button">
+
                 </tr>
                 
-                <?php foreach($result as $registre ): ?>
+                <?php $result=obtenirActivitats();
+                while ($row = $result->fetch_assoc()) {
+                ?>
         
                 <tr>
-                    <td><?php echo $registre['nom']; ?></td>
-                    <td><?php echo $registre['hora_inici']; ?></td>
+                    <td><?php echo $row['nom']; ?></td>
+                    <td><?php echo $row['hora_inici']; ?></td>
+                    <td><?php echo $row['aforament']; ?></td>
+                    <td><?php echo $row['descripcio']; ?></td>
+                    <td><?php echo $row['monitor']; ?></td>
                 </tr>
-        
-                <?php endforeach; ?>
-	
+
+                <?php } ?>
+
 	        </table>
+
+
             <div class="contenedor-sobre-nosotros">
                 <div class="contenido-textos">
                 </div>
@@ -69,15 +79,15 @@
         <div class="contenidor-footer">
             <div class="content-foo">
                 <h4>Phone</h4>
-                <p>69694538282</p>
+                <p>666666666</p>
             </div>
             <div class="content-foo">
                 <h4>Email</h4>
-                <p>mangogym</p>
+                <p>mangogym@gmail.com</p>
             </div>
             <div class="content-foo">
                 <h4>Location</h4>
-                <p>69694538282</p>
+                <p>Carrer de la Vall d'Aran, 13</p>
             </div>
     </div>
         <h2 class="titol-final">&copy;Pau Rubio | Bruno Tome</h2>

@@ -4,7 +4,7 @@ $passwd=$_POST['passwd'];
 session_start();
 $_SESSION['DNI']=$DNI;
 
-$conn=mysqli_connect("localhost","root","1234","gimnas");
+$conn=mysqli_connect("localhost","root","Fat/3232","gimnas");
 
 $consulta="SELECT * FROM Usuari_web U WHERE U.DNI='$DNI' AND U.passwd='$passwd'";
 $resultado=mysqli_query($conn,$consulta);
