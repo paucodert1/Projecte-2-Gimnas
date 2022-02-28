@@ -77,7 +77,7 @@ CREATE TABLE `Altes` (
 
 CREATE TABLE `Usuari_web` (
 	`username` varchar(16) NOT NULL,
-	`passwd` varchar(34) NOT NULL,
+	`passwd` varchar(32) NOT NULL,
 	`DNI` varchar(9) NOT NULL,
     PRIMARY KEY (`DNI`)
 );
@@ -192,12 +192,12 @@ INSERT INTO Altes(data_alta, data_baixa, DNI) VALUES
 
 
 INSERT INTO Usuari_web (username, passwd, DNI) VALUES 
-('BrunoTA', '1234', '47137446G'),
-('JanireQ', '1234', '77383544K'),
-('IgnasiC', '1234', '54126466Z'),
-('MyriamM', '1234', '51833470A'),
-('AyoubR', '1234', '67289921V'),
-('SergioC', '1234', '00046319C');
+('BrunoTA', MD5('1234'), '47137446G'),
+('JanireQ', MD5('1234'), '77383544K'),
+('IgnasiC', MD5('1234'), '54126466Z'),
+('MyriamM', MD5('1234'), '51833470A'),
+('AyoubR', MD5('1234'), '67289921V'),
+('SergioC', MD5('1234'), '00046319C');
 
 
 INSERT INTO Curses (descripcio, distancia, durada) VALUES 
