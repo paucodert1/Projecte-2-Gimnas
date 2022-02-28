@@ -62,9 +62,9 @@ CREATE TABLE `Monitor` (
 CREATE TABLE `Realitzacio` (
 	`data` DATE NOT NULL,
 	`hora` time(6) NOT NULL,
-	`idact` int NOT NULL UNIQUE,
-	`id_sala` int NOT NULL UNIQUE,
-	`DNI` varchar(9) NOT NULL UNIQUE,
+	`id_act` int NOT NULL,
+	`id_sala` int NOT NULL,
+	`DNI` varchar(9) NOT NULL,
     PRIMARY KEY (`DNI`)
 );
 
@@ -101,7 +101,7 @@ CREATE TABLE `Participa` (
 
 ALTER TABLE `Sala` ADD CONSTRAINT `Sala_fk0` FOREIGN KEY (`DNI_monitor`) REFERENCES `Monitor`(`DNI_monitor`);
 
-ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk0` FOREIGN KEY (`idact`) REFERENCES `Activitat`(`id_act`);
+ALTER TABLE `Realitzacio` ADD CONSTRAINT `Realitzacio_fk0` FOREIGN KEY (`id_act`) REFERENCES `Activitat`(`id_act`);
 
 ALTER TABLE `Activitat_lliure` ADD CONSTRAINT `Activitat_lliure_fk0` FOREIGN KEY (`id_act`) REFERENCES `Activitat`(`id_act`);
 
@@ -210,3 +210,8 @@ INSERT INTO Participa (data, hora, id_cursa, DNI) VALUES
 ('2022-02-17', '12:00:00', 1, '47137446G'),
 ('2022-02-17', '12:00:00', 1, '54126466Z'),
 ('2022-02-17', '12:00:00', 1, '51833470A');
+
+
+INSERT INTO Realitzacio (data, hora, id_act, id_sala, dni) VALUES
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C');
