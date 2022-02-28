@@ -1,7 +1,9 @@
 <?php
 
 // Create connection
-$conn=mysqli_connect("localhost","root","Fat/3232","gimnas");
+$conn=mysqli_connect("localhost","root","1234","gimnas");
+
+echo "connecta be"
 
 
 ?>

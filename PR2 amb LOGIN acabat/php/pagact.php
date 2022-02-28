@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,14 +9,10 @@
     <link rel="shortcut icon" href="../img/mango.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
-    <link href="ConnectarDB.php">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php
-        $conn
-    ?>
     <div class="header">
         <div class="nav">
             <div class="left">
@@ -28,7 +23,7 @@
                 <a href="#">Info Compte</a>
                 <a href="#">Fitxa</a>
                 <a href="#">Reserves</a>
-                <a href="pagact.php">Activitats</a>
+                <a href="paguinaActivitats.php">Activitats</a>
                 <a href="login.php">Veure Reserves<a>
             </div>
             
@@ -44,7 +39,28 @@
     </div>
     <div class="main">
         <section class="contenedor sobre-nosotros">
-            <h2 class="titol">PAGUINA DE BENVINGUDA</h2>
+            <h2 class="titol">ACTIVITATS</h2>
+
+            <table>
+
+                <tr id="first">
+                    <td>NOM</td>
+                    <td>HORA INCI</td>
+                    <td>AFORAMENT</td>
+                    <td>MATERIAL</td>
+                    <td>ESTOC</td>
+                </tr>
+                
+                <?php foreach($result as $registre ): ?>
+        
+                <tr>
+                    <td><?php echo $registre['nom']; ?></td>
+                    <td><?php echo $registre['hora_inici']; ?></td>
+                </tr>
+        
+                <?php endforeach; ?>
+	
+	        </table>
             <div class="contenedor-sobre-nosotros">
                 <div class="contenido-textos">
                 </div>
@@ -66,6 +82,7 @@
     </div>
         <h2 class="titol-final">&copy;Pau Rubio | Bruno Tome</h2>
 </div>
+<script src="funcions.js"></script>
 </body>
 
 </html>
