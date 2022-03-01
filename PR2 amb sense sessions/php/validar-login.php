@@ -2,15 +2,14 @@
 $DNI=$_POST['DNI'];
 $passwd=$_POST['passwd'];
 session_start();
-
+$_SESSION['DNI']=$DNI;
 
 $conn=mysqli_connect("localhost","root","Fat/3232","gimnas");
 
-$consulta="SELECT * FROM Usuari_web U WHERE U.DNI='$DNI' AND U.passwd='$passwd'";
+$consulta="SELECT * FROM Usuari_web U WHERE U.DNI='$DNI' AND U.passwd=md5('$passwd')";
 $resultado=mysqli_query($conn,$consulta);
 
 $filas=mysqli_num_rows($resultado);
-$_SESSION['DNI']=$DNI;
 
 if($filas){
   header("location:indexactivitats.php");
