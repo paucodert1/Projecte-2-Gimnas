@@ -60,12 +60,13 @@ CREATE TABLE `Monitor` (
 );
 
 CREATE TABLE `Realitzacio` (
+    `idrealitzacio` int NOT NULL AUTO_INCREMENT,
 	`data` DATE NOT NULL,
 	`hora` time(6) NOT NULL,
 	`id_act` int NOT NULL,
 	`id_sala` int NOT NULL,
 	`DNI` varchar(9) NOT NULL,
-    PRIMARY KEY (`DNI`)
+    PRIMARY KEY (`idrealitzacio`)
 );
 
 CREATE TABLE `Altes` (
@@ -121,8 +122,29 @@ ALTER TABLE `Participa` ADD CONSTRAINT `Participa_fk1` FOREIGN KEY (`DNI`) REFER
 
 ALTER TABLE `Activitat` ADD CONSTRAINT `Activitat_fk0` FOREIGN KEY (`id_sala`) REFERENCES `Sala`(`id_sala`);
 
+SET SQL_SAFE_UPDATES = 0;
 
-# INSERTS
+#PROCEDURE
+
+DELIMITER //
+CREATE PROCEDURE calcul_aforament ()
+BEGIN
+SELECT SUM(aforament)/(sum(aforament)+(SELECT count(*) FROM Realitzacio WHERE data <>'2999-1-1'))*100 as "percentatge d'aforament"
+FROM Sala;
+END
+//
+
+# TRIGGER
+
+DELIMITER $$
+CREATE TRIGGER restar_aforament
+AFTER INSERT ON Realitzacio
+FOR EACH ROW
+BEGIN
+UPDATE Sala NATURAL JOIN Realitzacio
+SET Sala.aforament = Sala.aforament - 1;
+END$$
+DELIMITER ;
 
 
 INSERT INTO Clients (DNI, nom, cognom1, cognom2, sexe, comunicaciocomercial, datanaixement, email, telefon, condiciofisica, ccc) VALUES 
@@ -214,4 +236,25 @@ INSERT INTO Participa (data, hora, id_cursa, DNI) VALUES
 
 INSERT INTO Realitzacio (data, hora, id_act, id_sala, dni) VALUES
 ('2022-02-28', '13:30:00', '1', 1, '47137446G'),
-('2022-02-28', '13:30:00', '1', 1, '00046319C');
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-02-28', '13:30:00', '1', 1, '47137446G'),
+('2022-02-28', '13:30:00', '1', 1, '00046319C'),
+('2022-03-28', '13:30:00', '1', 1, '00046319C');
+
+call calcul_aforament();
