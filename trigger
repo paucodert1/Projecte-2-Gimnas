@@ -1,5 +1,17 @@
 use gimnas;
 
+# PROCEDURE
+
+DELIMITER //
+CREATE PROCEDURE calcul_aforament ()
+BEGIN
+SELECT SUM(aforament)/(sum(aforament)+(SELECT count(*) FROM Realitzacio WHERE data <>'2999-1-1'))*100 as "percentatge d'aforament"
+FROM Sala;
+END
+//
+
+# TRIGGER
+
 DELIMITER $$
 CREATE TRIGGER restar_aforament
 AFTER INSERT ON Realitzacio
@@ -11,5 +23,6 @@ END$$
 DELIMITER ;
 
 
-SELECT SUM(aforament)/160*100 as "percentatge d'aforament"
-FROM Sala;
+# CRIDEM AL TRIGGER
+
+call calcul_aforament();
