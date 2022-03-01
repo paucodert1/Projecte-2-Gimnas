@@ -1,0 +1,12 @@
+   
+                <input type="text" value="<?php echo $_SESSION['nom'] ?>">
+                <input type="text" value="<?php echo $_SESSION['DNI'] ?>">
+                <input type="text" value="<?php echo $_SESSION['cognom1'] ?>">
+                <input type="text" value="<?php echo $_SESSION['cognom2'] ?>">
+                <input type="text" value="<?php echo $_SESSION['email'] ?>">
+                <input type="text" value="<?php echo $_SESSION['sexe'] ?>">
+                <input type="text" value="<?php echo $_SESSION['telefon'] ?>">
+                <input type="text" value="<?php echo $_SESSION['datanaixement'] ?>">
+                <input type="text" value="<?php echo $_SESSION['usuari'] ?>">
+                <input type="text" value="<?php echo $_SESSION['ccc'] ?>">
+                <input type="text" value="<?php echo $_SESSION['comunicaciocomercial'] ?>"> 
