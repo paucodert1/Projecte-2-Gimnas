@@ -12,7 +12,11 @@ $resultado=mysqli_query($conn,$consulta);
 $filas=mysqli_num_rows($resultado);
 
 if($filas){
+  while($row=$resultado->fetch_assoc()){
+    $_SESSION['username'] = $row['username'];
+  }
   header("location:indexactivitats.php");
+
 }else{
   ?>
   <?php
