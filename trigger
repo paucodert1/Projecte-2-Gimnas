@@ -1,17 +1,15 @@
 use gimnas;
 
 DELIMITER $$
-
-DROP TRIGGER IF EXISTS Sala_controlaforament;
-CREATE TRIGGER Sala_controlaforament
+CREATE TRIGGER restar_aforament
 AFTER INSERT ON Realitzacio
 FOR EACH ROW
 BEGIN
-	UPDATE Sala SET aforament = aforament -1
-    WHERE Sala.id_sala=Realitzacio.id_sala;
-END;
+UPDATE Sala NATURAL JOIN Realitzacio
+SET Sala.aforament = Sala.aforament - 1;
+END$$
+DELIMITER ;
 
-DELIMITER $$
 
-SELECT sum(aforament)
-FROM sala;
+SELECT SUM(aforament)/160*100 as "percentatge d'aforament"
+FROM Sala;
