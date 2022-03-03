@@ -42,24 +42,37 @@ session_start();
                 <ul>
                     <?php $result = obtenirActivitatsColectives();
                     while($row = $result->fetch_assoc()){
+                    $DNI = $_SESSION['DNI'];
+                    // $_SESSION['id_act'] = $id_act;
                     ?>
                         <li>
                             <div class="tarjeta">
                                 <div class="info">
-                                <p><?php echo $row['nom_act'] ?></p>
-                                <p><?php echo $row['aforament'] ?></p>
-                                <p><?php echo $row['hora_inici'] ?></p>
-                                <p><?php echo $row['dia'] ?></p>
-                                <p><?php echo $row['nom_monitor'] ?></p>
-                                <p><?php echo $row['descripcio'] ?></p>
+                                    <?php
+                                    $id_act = $row["id_act"];
+                                    $id_sala = $row["id_sala"];
+                                    ?>
+                                    <?php
+                                    echo "<a href='reserva.php?idact=$id_act&idsala=$id_sala'>Fer reserva</a>";
+                                    ?>
+                                    
+                                    <p><?php echo $row['nom_act'] ?></p>
+                                    <p><?php echo $row['aforament'] ?></p>
+                                    <p><?php echo $row['hora_inici'] ?></p>
+                                    <p><?php echo $row['dia'] ?></p>
+                                    <p>id_act: <?php echo $id_act ?></p>
+                                    <p>id_sala: <?php echo $id_sala ?></p>
+                                    <p>dni: <?php echo $DNI ?></p>
+                                    <p><?php echo $row['nom_monitor'] ?></p>
+                                    <p><?php echo $row['descripcio'] ?></p>
                                 </div>
                                 <div class="imatgeact">
-                                    <img src="..\img\actividad.jpg" alt="imatge_gym">
+                                    <img src="../img/1.png" alt="imatge_gym">
                                 </div>
                             </div>
                         </li>
-                    <?php } ?>
-                </ul>
+                        <?php } ?>
+                    </ul>
 
 
 
