@@ -1,0 +1,35 @@
+   
+                <input type="text" value="<?php echo $_SESSION['nom'] ?>">
+                <input type="text" value="<?php echo $_SESSION['DNI'] ?>">
+                <input type="text" value="<?php echo $_SESSION['cognom1'] ?>">
+                <input type="text" value="<?php echo $_SESSION['cognom2'] ?>">
+                <input type="text" value="<?php echo $_SESSION['email'] ?>">
+                <input type="text" value="<?php echo $_SESSION['sexe'] ?>">
+                <input type="text" value="<?php echo $_SESSION['telefon'] ?>">
+                <input type="text" value="<?php echo $_SESSION['datanaixement'] ?>">
+                <input type="text" value="<?php echo $_SESSION['usuari'] ?>">
+                <input type="text" value="<?php echo $_SESSION['ccc'] ?>">
+                <input type="text" value="<?php echo $_SESSION['comunicaciocomercial'] ?>"> 
+
+                <h2 class="titol">ACTIVITATS</h2>
+            <table id="customers">
+                <tr id="first">
+                    <th>NOM</th>
+                    <th>HORA INCI</th>
+                    <th>AFORAMENT</th>
+                    <th>MONITOR</th>
+                    <th>SALA</th>
+                    <input type="button">
+                </tr>
+                <?php $result=obtenirActivitats();
+                while ($row = $result->fetch_assoc()) {
+                ?>
+                <tr>
+                    <td><?php echo $row['nom']; ?></td>
+                    <td><?php echo $row['hora_inici']; ?></td>
+                    <td><?php echo $row['aforament']; ?></td>
+                    <td><?php echo $row['descripcio']; ?></td>
+                    <td><?php echo $row['monitor']; ?></td>
+                </tr>
+                <?php } ?>
+            </table>
