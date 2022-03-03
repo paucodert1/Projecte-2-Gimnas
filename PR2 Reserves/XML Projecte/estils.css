@@ -1,0 +1,32 @@
+*{
+    font-family: sans-serif;
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+#curses{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cursa{
+    border: 1px solid black;
+    width: 150px;
+    box-shadow: 2px 2px 2px black;
+    padding: 0 10px;
+}
+
+.cursa img{
+    width: 100%;
+}
+
+h4 span{
+    color: red;
+    font-size: 12px;
+
+}
+
+h3 span{
+    color: green;
+}
