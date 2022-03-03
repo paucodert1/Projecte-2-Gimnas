@@ -1,0 +1,32 @@
+package gimnas;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Connexio {
+
+    private Connection con;
+
+    static Connection connexioBD = null;
+
+    static void connectarBD() throws SQLException {
+        String servidor = "jdbc:mysql://localhost:3306/";
+        String bbdd = "gimnas";
+        String user = "root";
+        String password = "costa2021";
+        try {
+            connexioBD = DriverManager.getConnection(servidor + bbdd, user, password);
+            // System.out.println("*Connexio amb la base de dades amb èxit*");
+        } catch (SQLException ex) {
+            System.out.println("*No s'ha pogut conectar amb la base de dades*");
+            ex.printStackTrace();
+        }
+    }
+
+    public void tancarConnexioBD() throws SQLException {
+        connexioBD.close();
+    }
+
+
+}
