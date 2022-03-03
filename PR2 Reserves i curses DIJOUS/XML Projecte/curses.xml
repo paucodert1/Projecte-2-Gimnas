@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE curses SYSTEM "curses.dtd">
+<?xml-stylesheet type="text/xsl" href="curses.xsl"?>
+<curses>
+  <cursa category="bicicleta">
+    <idcursa>1</idcursa>
+    <descripcio>Cursa amb bicicleta a Tarrega</descripcio>
+    <durada>4h</durada>
+    <portada>portada1.jpg</portada>
+  </cursa>
+  <cursa category="correr">
+    <idcursa>2</idcursa>
+    <descripcio>Cursa de correr a Cervera</descripcio>
+    <durada>4h</durada>
+    <portada>portada2.jpg</portada>
+  </cursa>
+  <cursa category="natacio">
+    <idcursa>3</idcursa>
+    <descripcio>Cursa de natació a Tarrega</descripcio>
+    <durada>3,5h</durada>
+    <portada>portada3.jpg</portada>
+  </cursa>
+  <cursa category="triatló">
+    <idcursa>4</idcursa>
+    <descripcio>Cursa de natació a Barcelona</descripcio>
+    <durada>3,5h</durada>
+    <portada>portada4.jpg</portada>
+  </cursa>
+</curses>
