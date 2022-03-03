@@ -210,7 +210,8 @@ INSERT INTO Altes(data_alta, data_baixa, DNI) VALUES
 INSERT INTO Curses (descripcio, distancia, durada) VALUES 
 ('Cursa solidaria a peu al voltant de Tarrega', 12, '4 hores'),
 ('Cursa amb bici per Cervera', 15, '4,5 hores'),
-('Cursa a peu a Lleida', 10, '5 hores');
+('Cursa de natació a Lleida', 10, '5 hores'),
+('Cursa de triatló a Barcelona', 12, '4,5 hores');
 
 
 INSERT INTO Participa (data, hora, id_cursa, DNI) VALUES
@@ -223,6 +224,16 @@ INSERT INTO Realitzacio (data, hora, id_act, id_sala, dni) VALUES
 ('2022-02-28', '13:30:00', '1', 1, '47137446G'),
 (null, '13:30:00', '1', 1, '47137446G'),
 ('2022-02-28', '13:30:00', '1', 1, '00046319C');
+
+DELIMITER $$
+CREATE TRIGGER sumar_aforament
+AFTER UPDATE ON Realitzacio
+FOR EACH ROW
+BEGIN
+UPDATE Sala NATURAL JOIN Realitzacio
+SET Sala.aforament = Sala.aforament + 1;
+END$$
+DELIMITER ;
 
 call calcul_aforament();
 
