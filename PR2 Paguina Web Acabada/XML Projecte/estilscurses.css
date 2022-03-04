@@ -1,0 +1,64 @@
+*{
+    font-family: sans-serif;
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+.dalt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.dalt a{
+    font-size: large;
+    text-decoration: none;
+    color: black;
+}
+
+.dalt a:hover{
+    font-size: larger;
+    text-decoration: wavy;
+    color: orange;
+}
+
+h1{
+    font-size: large;
+}
+
+#curses{
+    display: flex;
+    flex-direction: column;
+}
+
+.cursa{
+    /* border: 1px solid black; */
+    width: 100%;
+    /* box-shadow: 2px 2px 2px black; */
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 150px;
+}
+
+.cursa img{
+    width: 400px;
+}
+
+.cursa input{
+    width: 400px;
+    height: 50px;
+}
+
+h4 span{
+    color: orange;
+    font-size: 12px;
+
+}
+
+h3 span{
+    color: orange;
+}

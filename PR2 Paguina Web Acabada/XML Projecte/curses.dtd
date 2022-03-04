@@ -1,0 +1,8 @@
+<!ELEMENT curses (cursa+)>
+<!ELEMENT cursa (idcursa, descripcio, durada, portada)>
+<!ELEMENT idcursa (#PCDATA)>
+<!ELEMENT descripcio (#PCDATA)>
+<!ELEMENT durada (#PCDATA)>
+<!ELEMENT portada (#PCDATA)>
+
+<!ATTLIST cursa category CDATA #REQUIRED>
