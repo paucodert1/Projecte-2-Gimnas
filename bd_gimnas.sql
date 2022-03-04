@@ -143,11 +143,11 @@ DELIMITER ;
 
 INSERT INTO Clients (DNI, nom, cognom1, cognom2, sexe, comunicaciocomercial, datanaixement, email, telefon, condiciofisica, ccc, username, passwd) VALUES 
 ('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', 'SI', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '628093249', null, "ES2412491614145851007544", 'BrunoTA', MD5('1234')),
-('77383544K', 'Janire', 'Quiles', 'cognom', 'H', 'SI', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '662672907', null, "ES6815257321906273010242", 'JanireQ', MD5('1234')),
-('54126466Z', 'Ignasi', 'Cabrera', 'cognom', 'M', 'NO', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "ES5600368145265920955294", 'IgnasiC', MD5('1234')),
-('51833470A', 'Myriam', 'Mari', 'cognom', 'H', 'NO', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "ES3631901491813119440760", 'MyriamM', MD5('1234')),
-('67289921V', 'Ayoub', 'Rosales', 'cognom', 'M', 'SI', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "ES0420405698814239157974", 'AyoubR', MD5('1234')),
-('00046319C', 'Sergio', 'Caceres', 'cognom', 'M', 'SI', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "ES6330726229373463442372", 'SergioC', MD5('1234'));
+('77383544K', 'Pau', 'Rubio', 'Silva', 'H', 'SI', '2003-08-09', 'paurs.dam1@alumnescostafreda.cat', '662672907', null, "ES6815257321906273010242", 'PauR', MD5('1234')),
+('54126466Z', 'Ignasi', 'Cabrera', 'Fernandez', 'M', 'NO', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '646721702', null, "ES5600368145265920955294", 'IgnasiC', MD5('1234')),
+('51833470A', 'Myriam', 'Mari', 'Mari', 'H', 'NO', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '600269857', null, "ES3631901491813119440760", 'MyriamM', MD5('1234')),
+('67289921V', 'Ayoub', 'Rosales', 'Sanches', 'M', 'SI', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '625166765', null, "ES0420405698814239157974", 'AyoubR', MD5('1234')),
+('00046319C', 'Sergio', 'Caceres', 'Rodriguez', 'M', 'SI', '2003-08-09','brunota.dam1@alumnescostafreda.cat', '620323809', null, "ES6330726229373463442372", 'SergioC', MD5('1234'));
 
 INSERT INTO Monitor(DNI_monitor, NSS, telefon, nom, cognom, email) VALUES
 ('08578598N', '408472140491', '623792716', 'Rafael', 'Luz', 'rafaell@gmail.com'),
@@ -163,20 +163,20 @@ INSERT INTO Sala(descripcio, aforament, DNI_monitor) VALUES
 
 
 INSERT INTO Activitat (hora_inici, hora_final, nom, dia, id_sala, imatge) VALUES 
-('12:30:00', '13:30:00', 'piscina', 1, 1, '../img/piscina.png'),
-('14:00:00', '15:00:00', 'fitness', 1, 2, '../img/fitness.png'),
-('12:30:00', '13:30:00', 'padel', 1, 4, '../img/padel.png'),
-('14:00:00', '15:00:00', 'bici', 2, 4, '../img/bici.png'),
-('12:30:00', '13:30:00', 'cinta de correr', 2, 2, '../img/cinta.png'),
-('14:00:00', '15:00:00', 'cycling', 2, 2, '../img/cycling.png'),
-('12:30:00', '13:30:00', 'body pump', 3, 2, '../img/bodypump.png'),
-('14:00:00', '15:00:00', 'pilates', 3, 3, '../img/pilates.png'),
-('12:30:00', '13:30:00', 'natació', 3, 1, '../img/natacio.png'),
-('14:00:00', '15:00:00', 'aquagym', 4, 1, '../img/aquagym.png'),
-('12:30:00', '13:30:00', 'running', 4, 3, '../img/running.png'),
-('14:00:00', '15:00:00', 'zumba', 4, 3, '../img/zumba.png'),
-('12:30:00', '13:30:00', 'boxa', 5, 2, '../img/boxa.png'),
-('14:00:00', '15:00:00', 'ioga', 5, 3, '../img/ioga.png');
+('12:30:00', '13:30:00', 'piscina', 1, 1, '../img/1.png'),
+('14:00:00', '15:00:00', 'fitness', 1, 2, '../img/2.png'),
+('12:30:00', '13:30:00', 'padel', 1, 4, '../img/3.png'),
+('14:00:00', '15:00:00', 'bici', 2, 4, '../img/4.png'),
+('12:30:00', '13:30:00', 'cinta de correr', 2, 2, '../img/5.png'),
+('14:00:00', '15:00:00', 'cycling', 2, 2, '../img/6.png'),
+('12:30:00', '13:30:00', 'body pump', 3, 2, '../img/7.png'),
+('14:00:00', '15:00:00', 'pilates', 3, 3, '../img/8.png'),
+('12:30:00', '13:30:00', 'natació', 3, 1, '../img/9.png'),
+('14:00:00', '15:00:00', 'aquagym', 4, 1, '../img/10.png'),
+('12:30:00', '13:30:00', 'running', 4, 3, '../img/11.png'),
+('14:00:00', '15:00:00', 'zumba', 4, 3, '../img/12.png'),
+('12:30:00', '13:30:00', 'boxa', 5, 2, '../img/13.png'),
+('14:00:00', '15:00:00', 'ioga', 5, 3, '../img/14.png');
 
 
 INSERT INTO Activitat_lliure(id_act, descripcio) VALUES
