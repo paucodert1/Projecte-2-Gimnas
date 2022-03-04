@@ -16,8 +16,8 @@ CREATE TABLE `Clients` (
 	`telefon` varchar(9) NOT NULL,
 	`condiciofisica` varchar(255),
     `ccc` varchar(24) NOT NULL,
-    `username` varchar(24) NOT NULL,
-    `passwd` varchar(32) NOT NULL,
+    `username` varchar(24),
+    `passwd` varchar(32),
 	PRIMARY KEY (`DNI`)
 );
 
@@ -142,12 +142,12 @@ DELIMITER ;
 
 
 INSERT INTO Clients (DNI, nom, cognom1, cognom2, sexe, comunicaciocomercial, datanaixement, email, telefon, condiciofisica, ccc, username, passwd) VALUES 
-('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', 'SI', '1069-10-07', 'brunota.dam1@alumnescostafreda.cat', '973 58 71 05', null, "ES2412491614145851007544", 'BrunoTA', MD5('1234')),
-('77383544K', 'Pau', 'Rubio', 'Silva', 'H', 'SI', '1990-02-15', 'paurs.dam1@alumnescostafreda.cat', '973 09 65 32', null, "ES6815257321906273010242", 'PauR', MD5('1234')),
-('54126466Z', 'Ignasi', 'Cabrera', 'Fernandez', 'M', 'NO', '1999-11-15','igansicf.dam1@alumnescostafreda.cat', '973 67 24 86', null, "ES5600368145265920955294", 'IgnasiC', MD5('1234')),
-('51833470A', 'Myriam', 'Mari', 'Lopez', 'H', 'NO', '1996-06-05','myriamml.dam1@alumnescostafreda.cat', '973 74 91 69', null, "ES3631901491813119440760", 'MyriamM', MD5('1234')),
-('67289921V', 'Ayoub', 'Rosales', 'Sanches', 'M', 'SI', '2003-08-21','ayoubrs.dam1@alumnescostafreda.cat', '973 18 36 57', null, "ES0420405698814239157974", 'AyoubR', MD5('1234')),
-('00046319C', 'Sergio', 'Caceres', 'Rodriguez', 'M', 'SI', '2001-2-15','sergiocr.dam1@alumnescostafreda.cat', '973 42 45 00', null, "ES6330726229373463442372", 'SergioC', MD5('1234'));
+('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', 'SI', '1069-10-07', 'brunota.dam1@alumnescostafreda.cat', '656021302', null, "ES2412491614145851007544", 'BrunoTA', MD5('1234')),
+('77383544K', 'Pau', 'Rubio', 'Silva', 'H', 'SI', '1990-02-15', 'paurs.dam1@alumnescostafreda.cat', '783250105', null, "ES6815257321906273010242", 'PauR', MD5('1234')),
+('54126466Z', 'Ignasi', 'Cabrera', 'Fernandez', 'M', 'NO', '1999-11-15','igansicf.dam1@alumnescostafreda.cat', '613019912', null, "ES5600368145265920955294", 'IgnasiC', MD5('1234')),
+('51833470A', 'Myriam', 'Mari', 'Lopez', 'H', 'NO', '1996-06-05','myriamml.dam1@alumnescostafreda.cat', '613965253', null, "ES3631901491813119440760", 'MyriamM', MD5('1234')),
+('67289921V', 'Ayoub', 'Rosales', 'Sanches', 'M', 'SI', '2003-08-21','ayoubrs.dam1@alumnescostafreda.cat', '653934787', null, "ES0420405698814239157974", 'AyoubR', MD5('1234')),
+('00046319C', 'Sergio', 'Caceres', 'Rodriguez', 'M', 'SI', '2001-2-15','sergiocr.dam1@alumnescostafreda.cat', '632892252', null, "ES6330726229373463442372", 'SergioC', MD5('1234'));
 
 INSERT INTO Monitor(DNI_monitor, NSS, telefon, nom, cognom, email) VALUES
 ('08578598N', '408472140491', '623792716', 'Rafael', 'Luz', 'rafaell@gmail.com'),
