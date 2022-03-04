@@ -163,20 +163,20 @@ INSERT INTO Sala(descripcio, aforament, DNI_monitor) VALUES
 
 
 INSERT INTO Activitat (hora_inici, hora_final, nom, dia, id_sala, imatge) VALUES 
-('12:30:00', '13:30:00', 'piscina', 1, 1, '../img/1.png'),
-('14:00:00', '15:00:00', 'fitness', 1, 2, '../img/2.png'),
-('12:30:00', '13:30:00', 'padel', 1, 4, '../img/3.png'),
-('14:00:00', '15:00:00', 'bici', 2, 4, '../img/4.png'),
-('12:30:00', '13:30:00', 'cinta de correr', 2, 2, '../img/5.png'),
-('14:00:00', '15:00:00', 'cycling', 2, 2, '../img/6.png'),
-('12:30:00', '13:30:00', 'body pump', 3, 2, '../img/7.png'),
-('14:00:00', '15:00:00', 'pilates', 3, 3, '../img/8.png'),
-('12:30:00', '13:30:00', 'natació', 3, 1, '../img/9.png'),
-('14:00:00', '15:00:00', 'aquagym', 4, 1, '../img/10.png'),
-('12:30:00', '13:30:00', 'running', 4, 3, '../img/11.png'),
-('14:00:00', '15:00:00', 'zumba', 4, 3, '../img/12.png'),
-('12:30:00', '13:30:00', 'boxa', 5, 2, '../img/13.png'),
-('14:00:00', '15:00:00', 'ioga', 5, 3, '../img/14.png');
+('12:30:00', '13:30:00', 'piscina', 1, 1, '../img/piscina.png'),
+('14:00:00', '15:00:00', 'fitness', 1, 2, '../img/fitness.png'),
+('12:30:00', '13:30:00', 'padel', 1, 4, '../img/padel.png'),
+('14:00:00', '15:00:00', 'bici', 2, 4, '../img/bici.png'),
+('12:30:00', '13:30:00', 'cinta de correr', 2, 2, '../img/cinta.png'),
+('14:00:00', '15:00:00', 'cycling', 2, 2, '../img/cycling.png'),
+('12:30:00', '13:30:00', 'body pump', 3, 2, '../img/bodypump.png'),
+('14:00:00', '15:00:00', 'pilates', 3, 3, '../img/pilates.png'),
+('12:30:00', '13:30:00', 'natació', 3, 1, '../img/natacio.png'),
+('14:00:00', '15:00:00', 'aquagym', 4, 1, '../img/aquagym.png'),
+('12:30:00', '13:30:00', 'running', 4, 3, '../img/running.png'),
+('14:00:00', '15:00:00', 'zumba', 4, 3, '../img/zumba.png'),
+('12:30:00', '13:30:00', 'boxa', 5, 2, '../img/boxa.png'),
+('14:00:00', '15:00:00', 'ioga', 5, 3, '../img/ioga.png');
 
 
 INSERT INTO Activitat_lliure(id_act, descripcio) VALUES
