@@ -142,7 +142,7 @@ DELIMITER ;
 
 
 INSERT INTO Clients (DNI, nom, cognom1, cognom2, sexe, comunicaciocomercial, datanaixement, email, telefon, condiciofisica, ccc, username, passwd) VALUES 
-('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', 'SI', '1069-10-07', 'brunota.dam1@alumnescostafreda.cat', '656021302', null, "ES2412491614145851007544", 'BrunoTA', MD5('1234')),
+('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', 'SI', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '656021302', null, "ES2412491614145851007544", 'BrunoTA', MD5('1234')),
 ('77383544K', 'Pau', 'Rubio', 'Silva', 'H', 'SI', '1990-02-15', 'paurs.dam1@alumnescostafreda.cat', '783250105', null, "ES6815257321906273010242", 'PauR', MD5('1234')),
 ('54126466Z', 'Ignasi', 'Cabrera', 'Fernandez', 'M', 'NO', '1999-11-15','igansicf.dam1@alumnescostafreda.cat', '613019912', null, "ES5600368145265920955294", 'IgnasiC', MD5('1234')),
 ('51833470A', 'Myriam', 'Mari', 'Lopez', 'H', 'NO', '1996-06-05','myriamml.dam1@alumnescostafreda.cat', '613965253', null, "ES3631901491813119440760", 'MyriamM', MD5('1234')),
