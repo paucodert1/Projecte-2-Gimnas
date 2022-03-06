@@ -32,7 +32,7 @@ public class Gimnas {
             System.out.println("______________________________________________");
             System.out.println("|                MENU GIMNAS                 |");
             System.out.println("|             1. Gestió Client               |");
-            System.out.println("|             2. Activitats                  |");
+            System.out.println("|             2. Activitats del dia          |");
             System.out.println("|             3. Sortir                      |");
             System.out.println("|____________________________________________|");
             System.out.println("\nTRIA UNA OPCIÓ:");
@@ -44,7 +44,7 @@ public class Gimnas {
                     gestioClient();
                     break;
                 case 2:
-                    // visualitzar activitats
+                    actDia();
                     break;
                 case 3:
                     sortir = true;
@@ -100,6 +100,11 @@ public class Gimnas {
                     System.out.println("\n" + opcio + " NO ÉS UNA OPCIÓ NO VÀLIDA");
             }
         } while (!sortir);
+    }
+
+    public void actDia() throws SQLException{
+        Client c = new Client();
+        c.menuActDia();
     }
 
     // private void consultarClient() throws SQLException {
