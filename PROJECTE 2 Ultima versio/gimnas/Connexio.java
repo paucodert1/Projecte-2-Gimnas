@@ -1,4 +1,4 @@
-﻿package gimnas;
+package gimnas;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class Connexio {
         String servidor = "jdbc:mysql://localhost:3306/";
         String bbdd = "gimnas";
         String user = "root";
-        String password = "costa20211";
+        String password = "costa2021";
         try {
             connexioBD = DriverManager.getConnection(servidor + bbdd, user, password);
             return connexioBD;
