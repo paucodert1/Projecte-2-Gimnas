@@ -164,14 +164,14 @@ public class Client {
     public void altaClient() throws SQLException {
         Scanner teclat = new Scanner(System.in);
 
-        System.out.println("*Donar d'alta un client*");
+        System.out.println("\n*Donar d'alta un client*");
 
         String dni;
         Dni dniobj = new Dni();
         // boolean dniCorrecte() = false;
         // String dni;
         do {
-            System.out.println("Introdueix el DNI del client que vols donar d'alta: ");
+            System.out.println("\nIntrodueix el DNI del client que vols donar d'alta: ");
             dni = teclat.next();
 
         } while (!dniobj.validarDni(dni));
@@ -182,21 +182,21 @@ public class Client {
         setDni(dniobj);
 
         if (consultaClientBD(dniobj.getDni()) != null) {
-            System.out.println("El client amb aquest DNI ja existeix");
+            System.out.println("\nEl client amb aquest DNI ja existeix");
         } else {
-            System.out.println("Nom: ");
+            System.out.println("\nNom: ");
             this.nom = teclat.next();
 
-            System.out.println("Primer cognom: ");
+            System.out.println("\nPrimer cognom: ");
             this.cognom1 = teclat.next();
 
-            System.out.println("Segon cognom: ");
+            System.out.println("\nSegon cognom: ");
             this.cognom2 = teclat.next();
 
-            System.out.println("Sexe: ");
+            System.out.println("\nSexe (M, H): ");
             this.sexe = teclat.next();
 
-            System.out.println("Condició física: ");
+            System.out.println("\nCondició física: ");
             this.condicioFisica = teclat.next();
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -204,7 +204,7 @@ public class Client {
 
             do {
                 dataCorrecta = true;
-                System.out.println("Introdueix data de naixement en format correcte(yyyy-MM-dd)");
+                System.out.println("\nIntrodueix data de naixement en format correcte(yyyy-MM-dd)");
                 try {
                     this.datanaixement = LocalDate.parse(teclat.next(), formatter);
                 } catch (Exception ex) {
@@ -400,7 +400,7 @@ public class Client {
             System.out.print("Nom: " + rs.getString("nom") + " ");
             System.out.print("Cognom: " + rs.getString("cognom1") + " ");
             System.out.print("Numero de reserves: " + rs.getString("num_reserves") +
-            "\n");
+                    "\n");
 
             clients.add(cli);
         }
@@ -420,6 +420,73 @@ public class Client {
 
     }
 
+    public void menuActDia() throws SQLException {
+        Scanner teclat = new Scanner(System.in);
+        boolean sortir = false;
+
+        Connexio con = new Connexio();
+        Connection conexio = con.connectarBD();
+
+        do {
+            System.out.println("______________________________________________");
+            System.out.println("|     Introdueixi el dia de la setmana       |");
+            System.out.println("|                                            |");
+            System.out.println("|             1. Dilluns                     |");
+            System.out.println("|             2. Dimarts                     |");
+            System.out.println("|             3. Dimecres                    |");
+            System.out.println("|             4. Dijous                      |");
+            System.out.println("|             5. Divendres                   |");
+            System.out.println("|             6. Sortir                      |");
+            System.out.println("|____________________________________________|");
+            System.out.println("\nTRIA UNA OPCIÓ:");
+
+            int opcio = teclat.nextInt();
+
+            switch (opcio) {
+                case 1:
+                    mostrarActivitatDelDia(opcio);
+                    break;
+                case 2:
+                    mostrarActivitatDelDia(opcio);
+                    break;
+                case 3:
+                    mostrarActivitatDelDia(opcio);
+                    break;
+                case 4:
+                    mostrarActivitatDelDia(opcio);
+                    break;
+                case 5:
+                    mostrarActivitatDelDia(opcio);
+                    break;
+                case 6:
+                    sortir = true;
+                    break;
+                default:
+                    System.out.println("\n" + opcio + " NO ÉS UNA OPCIÓ NO VÀLIDA. Introdueixi un numero del 1 al 5");
+            }
+        } while (!sortir);
+
+    }
+
+    public void mostrarActivitatDelDia(int opcio) throws SQLException {
+        Scanner teclat = new Scanner(System.in);
+
+        Connexio con = new Connexio();
+        Connection conexio = con.connectarBD();
+
+        String consulta = "SELECT A.*, count(R.id_act) as num_reserves FROM Realitzacio R, Activitat A WHERE R.id_act=A.id_act AND R.data is not null GROUP BY R.id_act ORDER BY count(R.id_act) DESC;";
+                PreparedStatement ps = conexio.prepareStatement(consulta);
+
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            int id_act = rs.getInt("A.id_act");
+            String nom = rs.getString("A.nom");
+            double aforament = rs.getInt("S.aforament");
+            double Percentatge = (aforament/40)*100;
+            int inscripcions=rs.getInt("num_reserves");
+            System.out.println("\n NOM: " + nom + " ID ACTIVITAT: " + id_act + "    PERCENTATGE D'AFORAMENT DISPONIBLE: " + Percentatge + "%" + " PERSONES INSCRITES: " + inscripcions);
+        }
+    }
 
     @Override
     public String toString() {
@@ -427,7 +494,6 @@ public class Client {
                 + edat + ", email=" + this.email.getEmail() + ", telefon=" + this.telefon.getTelefon()
                 + "]\n";
     }
-    
 
     // static void modificarClient() throws SQLException {
     // Scanner teclat = new Scanner(System.in);
