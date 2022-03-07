@@ -120,29 +120,49 @@ SET SQL_SAFE_UPDATES = 0;
 
 #PROCEDURE
 
+DROP PROCEDURE IF EXISTS calcul_aforament;
 DELIMITER //
 CREATE PROCEDURE calcul_aforament ()
 BEGIN
-SELECT SUM(aforament)/(sum(aforament)+(SELECT count(*) FROM Realitzacio WHERE data <>'2999-1-1'))*100 as "percentatge d'aforament"
+SELECT SUM(aforament)/(sum(aforament)+(SELECT count(*) FROM Realitzacio WHERE data is not null))*100 as "percentatge d'aforament"
 FROM Sala;
 END
 //
 
 # TRIGGER
 
+DROP TRIGGER IF EXISTS restar_aforament;
 DELIMITER $$
 CREATE TRIGGER restar_aforament
 AFTER INSERT ON Realitzacio
 FOR EACH ROW
 BEGIN
-UPDATE Sala NATURAL JOIN Realitzacio
-SET Sala.aforament = Sala.aforament - 1;
+UPDATE Sala NATURAL JOIN Realitzacio, Activitat
+SET Sala.aforament = Sala.aforament - 1
+WHERE Realitzacio.id_act = Activitat.id_act
+AND Activitat.id_sala=Sala.id_sala
+AND Realitzacio.id_sala=Sala.id_sala;
+END$$
+DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS sumar_aforament;
+DELIMITER $$
+CREATE TRIGGER sumar_aforament
+AFTER UPDATE ON Realitzacio
+FOR EACH ROW
+BEGIN
+UPDATE Sala NATURAL JOIN Realitzacio, Activitat
+SET Sala.aforament = Sala.aforament + 1
+WHERE Realitzacio.id_act = Activitat.id_act
+AND Activitat.id_sala=Sala.id_sala
+AND Realitzacio.id_sala=Sala.id_sala;
 END$$
 DELIMITER ;
 
 
 INSERT INTO Clients (DNI, nom, cognom1, cognom2, sexe, comunicaciocomercial, datanaixement, email, telefon, condiciofisica, ccc, username, passwd) VALUES 
-('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', 'SI', '2003-08-09', 'brunota.dam1@alumnescostafreda.cat', '656021302', null, "ES2412491614145851007544", 'BrunoTA', MD5('1234')),
+('47137446G', 'Bruno', 'Tomé', 'Arias', 'M', 'SI', '2003-10-07', 'brunota.dam1@alumnescostafreda.cat', '656021302', null, "ES2412491614145851007544", 'BrunoTA', MD5('1234')),
 ('77383544K', 'Pau', 'Rubio', 'Silva', 'H', 'SI', '1990-02-15', 'paurs.dam1@alumnescostafreda.cat', '783250105', null, "ES6815257321906273010242", 'PauR', MD5('1234')),
 ('54126466Z', 'Ignasi', 'Cabrera', 'Fernandez', 'M', 'NO', '1999-11-15','igansicf.dam1@alumnescostafreda.cat', '613019912', null, "ES5600368145265920955294", 'IgnasiC', MD5('1234')),
 ('51833470A', 'Myriam', 'Mari', 'Lopez', 'H', 'NO', '1996-06-05','myriamml.dam1@alumnescostafreda.cat', '613965253', null, "ES3631901491813119440760", 'MyriamM', MD5('1234')),
@@ -223,18 +243,15 @@ INSERT INTO Participa (data, hora, id_cursa, DNI) VALUES
 INSERT INTO Realitzacio (data, hora, id_act, id_sala, dni) VALUES
 ('2022-02-28', '13:30:00', '1', 1, '47137446G'),
 (null, '13:30:00', '1', 1, '47137446G'),
+('2022-02-21', '12:00:00', '3', 4, '77383544K'),
+('2022-02-21', '10:15:00', '5', 2, '67289921V'),
+('2022-02-21', '10:30:00', '5', 2, '54126466Z'),
+('2022-02-14', '11:30:00', '5', 2, '77383544K'),
 ('2022-02-28', '13:30:00', '1', 1, '00046319C');
 
-DELIMITER $$
-CREATE TRIGGER sumar_aforament
-AFTER UPDATE ON Realitzacio
-FOR EACH ROW
-BEGIN
-UPDATE Sala NATURAL JOIN Realitzacio
-SET Sala.aforament = Sala.aforament + 1;
-END$$
-DELIMITER ;
+
 
 call calcul_aforament();
 
 SELECT * FROM CLIENTS;
+
