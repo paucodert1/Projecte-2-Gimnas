@@ -27,7 +27,6 @@ session_start();
                 <a href="pagact.php">Activitats</a>
                 <a href="../XML Projecte/curses.xml">Curses<a>
                 <a href="tancaSessio.php">Tanca Sessio<a>
-                    <p>Aforament: 87% </p>
         </div>
         <section class="textes-header">
             <h1>Benvingut/da <?php echo $_SESSION['username']?></h1>
