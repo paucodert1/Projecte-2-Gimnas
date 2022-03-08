@@ -253,5 +253,3 @@ INSERT INTO Realitzacio (data, hora, id_act, id_sala, dni) VALUES
 
 call calcul_aforament();
 
-SELECT * FROM CLIENTS;
-
